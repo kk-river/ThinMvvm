@@ -7,6 +7,9 @@
     <PathMap>$(RepoRoot)=.</PathMap>
     <InvariantGlobalization>true</InvariantGlobalization>
     <UseArtifactsOutput>true</UseArtifactsOutput>
+    <RootNamespace>ThinMvvm</RootNamespace>
+
+    <LangVersion>12</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

@@ -9,11 +9,36 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThinMvvm.Wpf", "src\ThinMvvm.Wpf\ThinMvvm.Wpf.csproj", "{1361FE12-BAC0-44B7-AC2F-EA34EB001C54}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThinMvvm.WinUI", "src\ThinMvvm.WinUI\ThinMvvm.WinUI.csproj", "{4C527EFB-0132-4928-858E-1A8DAFDDB9FA}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ThinMvvm.Shared", "src\ThinMvvm.Shared\ThinMvvm.Shared.shproj", "{38CE441B-7028-475D-89C4-0D85C4BE4788}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1361FE12-BAC0-44B7-AC2F-EA34EB001C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1361FE12-BAC0-44B7-AC2F-EA34EB001C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1361FE12-BAC0-44B7-AC2F-EA34EB001C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1361FE12-BAC0-44B7-AC2F-EA34EB001C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C527EFB-0132-4928-858E-1A8DAFDDB9FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C527EFB-0132-4928-858E-1A8DAFDDB9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C527EFB-0132-4928-858E-1A8DAFDDB9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C527EFB-0132-4928-858E-1A8DAFDDB9FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A19B1B29-5744-4C4A-A356-FAC6E7606468}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\ThinMvvm.Shared\ThinMvvm.Shared.projitems*{1361fe12-bac0-44b7-ac2f-ea34eb001c54}*SharedItemsImports = 5
+		src\ThinMvvm.Shared\ThinMvvm.Shared.projitems*{38ce441b-7028-475d-89c4-0d85c4be4788}*SharedItemsImports = 13
+		src\ThinMvvm.Shared\ThinMvvm.Shared.projitems*{4c527efb-0132-4928-858e-1a8dafddb9fa}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

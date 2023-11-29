@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>38ce441b-7028-475d-89c4-0d85c4be4788</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ThinMvvm.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Modularity\IModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Modularity\ModuleCatalog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThinApplication.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transition\IServiceCollectionExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transition\ITransitionBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transition\ITransitionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transition\TransitionBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transition\TransitionManager.cs" />
+  </ItemGroup>
+</Project>
