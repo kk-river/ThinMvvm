@@ -56,7 +56,7 @@ internal class TransitionBuilder(IServiceCollection services) : ITransitionBuild
         where TWindow : Window
         where TViewModel : class
     {
-        _viewList.Add(windowName, provider =>
+        _windowList.Add(windowName, provider =>
         {
             TWindow window = ActivatorUtilities.CreateInstance<TWindow>(provider);
             TViewModel viewModel = ActivatorUtilities.CreateInstance<TViewModel>(provider);
