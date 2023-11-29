@@ -8,7 +8,7 @@
     <DefineConstants>$(DefineConstants);WINUI</DefineConstants>
 
     <RootNamespace>ThinMvvm</RootNamespace>
-    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionPrefix>0.1.1</VersionPrefix>
   </PropertyGroup>
 
   <ItemGroup>
