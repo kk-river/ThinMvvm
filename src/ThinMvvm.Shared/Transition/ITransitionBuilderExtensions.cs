@@ -87,7 +87,7 @@ public static class ITransitionBuilderExtensions
     }
 #endif
 
-    public static ITransitionBuilder AddTransientWindow<TWindow>(this ITransitionBuilder builder, string windowName, Func<IServiceProvider, TWindow> windowFactory, ServiceLifetime serviceLifetime)
+    public static ITransitionBuilder AddTransientWindow<TWindow>(this ITransitionBuilder builder, string windowName, Func<IServiceProvider, TWindow> windowFactory)
         where TWindow : Window
     {
         return builder.AddWindow(windowName, windowFactory, ServiceLifetime.Transient);
@@ -114,7 +114,7 @@ public static class ITransitionBuilderExtensions
     }
 #endif
 
-    public static ITransitionBuilder AddSingletonWindow<TWindow>(this ITransitionBuilder builder, string windowName, Func<IServiceProvider, TWindow> windowFactory, ServiceLifetime serviceLifetime)
+    public static ITransitionBuilder AddSingletonWindow<TWindow>(this ITransitionBuilder builder, string windowName, Func<IServiceProvider, TWindow> windowFactory)
         where TWindow : Window
     {
         return builder.AddWindow(windowName, windowFactory, ServiceLifetime.Singleton);
