@@ -17,6 +17,10 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.2428" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ThinMvvm.Modularity\ThinMvvm.Modularity.csproj" />
+  </ItemGroup>
+
   <Import Project="..\ThinMvvm.Shared\ThinMvvm.Shared.projitems" Label="Shared" />
 
 </Project>

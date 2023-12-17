@@ -25,14 +25,16 @@ public abstract class ThinApplication : Application
 
         ConfigureServices(services);
 
-        ModuleCatalog moduleCatalog = new();
+        IModuleCatalog moduleCatalog = CreateModuleCatalog();
         ConfigureModuleCatalog(moduleCatalog);
         moduleCatalog.Build(services);
 
         PostStartup(provider: services.BuildServiceProvider());
     }
 
-    protected virtual void ConfigureModuleCatalog(ModuleCatalog moduleCatalog) { }
+    protected virtual IModuleCatalog CreateModuleCatalog() => new OmMemoryModuleCatalog();
+
+    protected virtual void ConfigureModuleCatalog(IModuleCatalog moduleCatalog) { }
 
     protected virtual void ConfigureServices(IServiceCollection services) { }
 
