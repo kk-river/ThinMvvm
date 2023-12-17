@@ -7,13 +7,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
     <RootNamespace>ThinMvvm</RootNamespace>
-    <VersionPrefix>0.2.1</VersionPrefix>
+    <VersionPrefix>0.3.0</VersionPrefix>
   </PropertyGroup>
 
   <Import Project="..\ThinMvvm.Shared\ThinMvvm.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ThinMvvm.Modularity\ThinMvvm.Modularity.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,8 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)internal\MinimumSubject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Modularity\IModule.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Modularity\ModuleCatalog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ThinApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Transition\Frame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Transition\IServiceCollectionExtension.cs" />
