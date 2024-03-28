@@ -2,7 +2,7 @@
 
 namespace ThinMvvm.Modularity;
 
-public class OmMemoryModuleCatalog : IModuleCatalog
+public class OnMemoryModuleCatalog : IModuleCatalog
 {
     private readonly List<IModule> _modules = [];
 
