@@ -32,7 +32,7 @@ public abstract class ThinApplication : Application
         PostStartup(provider: services.BuildServiceProvider());
     }
 
-    protected virtual IModuleCatalog CreateModuleCatalog() => new OmMemoryModuleCatalog();
+    protected virtual IModuleCatalog CreateModuleCatalog() => new OnMemoryModuleCatalog();
 
     protected virtual void ConfigureModuleCatalog(IModuleCatalog moduleCatalog) { }
 
