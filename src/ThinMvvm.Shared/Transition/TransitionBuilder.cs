@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ThinMvvm.Shared.Transition;
 
 #if WINUI
 using Microsoft.UI.Xaml;
@@ -12,24 +13,25 @@ internal class TransitionBuilder(IServiceCollection services) : ITransitionBuild
 {
     private readonly IServiceCollection _services = services;
 
-    public ITransitionBuilder AddView<TView>(string viewName, Func<IServiceProvider, TView> viewFactory, ServiceLifetime serviceLifetime)
+    public IViewConfiguration<TView> AddView<TView>(string viewName, Func<IServiceProvider, TView> viewFactory, ServiceLifetime serviceLifetime)
         where TView : FrameworkElement
     {
-        _services.Add(new ServiceDescriptor(typeof(ViewRegistration), viewName, (provider, _) => new ViewRegistration(viewName, viewFactory(provider)), serviceLifetime));
+        ViewConfiguration<TView> viewConfiguration = new(viewName, viewFactory);
 
-        return this;
+        _services.Add(new ServiceDescriptor(typeof(TView), viewName, (provider, _) => viewFactory(provider), serviceLifetime));
+        _services.Add(new ServiceDescriptor(typeof(ElementConfiguration<FrameworkElement>), viewName, viewConfiguration));
+
+        return viewConfiguration;
     }
 
-    public ITransitionBuilder AddWindow<TWindow>(string windowName, Func<IServiceProvider, TWindow> windowFactory, ServiceLifetime serviceLifetime)
+    public IWindowConfiguration<TWindow> AddWindow<TWindow>(string windowName, Func<IServiceProvider, TWindow> windowFactory)
         where TWindow : Window
     {
-        _services.Add(new ServiceDescriptor(typeof(WindowRegistration), windowName, (provider, _) => new WindowRegistration(windowName, windowFactory(provider)), serviceLifetime));
+        WindowConfiguration<TWindow> windowConfiguration = new(windowName, windowFactory);
 
-        return this;
-    }
+        _services.Add(new ServiceDescriptor(typeof(TWindow), windowName, (provider, _) => windowFactory(provider), ServiceLifetime.Transient));
+        _services.Add(new ServiceDescriptor(typeof(ElementConfiguration<Window>), windowName, windowConfiguration));
 
-    internal void Build()
-    {
-        _services.Add(new ServiceDescriptor(typeof(ITransitionManager), provider => new TransitionManager(provider), ServiceLifetime.Singleton));
+        return windowConfiguration;
     }
 }

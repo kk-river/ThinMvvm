@@ -2,9 +2,8 @@
 
 public interface ITransitionManager
 {
-    IReadOnlyDictionary<string, IFrame> Frames { get; }
+    void RequestTransition(string frameName, string viewName);
 
-    void RequestTransit(string frameName, string viewName);
-
-    void ShowWindow(string windowName);
+    void ShowWindow(string viewName);
+    //void ShowWindow(string viewName, string windowName);
 }

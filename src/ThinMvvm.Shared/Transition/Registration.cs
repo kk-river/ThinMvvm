@@ -8,4 +8,4 @@ namespace ThinMvvm.Transition;
 
 internal record ViewRegistration(string ViewName, FrameworkElement ViewElement);
 
-internal record WindowRegistration(string ViewName, Window Window);
+internal record WindowRegistration(string WindowName, Func<IServiceProvider, UIElement, Window> Factory);

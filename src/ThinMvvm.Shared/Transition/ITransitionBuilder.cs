@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ThinMvvm.Shared.Transition;
 
 #if WINUI
 using Microsoft.UI.Xaml;
@@ -10,9 +11,9 @@ namespace ThinMvvm.Transition;
 
 public interface ITransitionBuilder
 {
-    public ITransitionBuilder AddView<TView>(string viewName, Func<IServiceProvider, TView> viewFactory, ServiceLifetime serviceLifetime)
+    public IViewConfiguration<TView> AddView<TView>(string viewName, Func<IServiceProvider, TView> viewFactory, ServiceLifetime serviceLifetime)
         where TView : FrameworkElement;
 
-    public ITransitionBuilder AddWindow<TWindow>(string viewName, Func<IServiceProvider, TWindow> windowFactory, ServiceLifetime serviceLifetime)
+    public IWindowConfiguration<TWindow> AddWindow<TWindow>(string windowName, Func<IServiceProvider, TWindow> windowFactory)
         where TWindow : Window;
 }

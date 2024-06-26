@@ -1,5 +1,7 @@
 ﻿using ThinMvvm.Modularity;
 using Microsoft.Extensions.DependencyInjection;
+using ThinMvvm.Transition;
+
 
 #if WINUI
 using Microsoft.UI.Xaml;
@@ -25,11 +27,16 @@ public abstract class ThinApplication : Application
 
         ConfigureServices(services);
 
+        services.AddSingleton<ITransitionManager, TransitionManager>();
+
         IModuleCatalog moduleCatalog = CreateModuleCatalog();
         ConfigureModuleCatalog(moduleCatalog);
         moduleCatalog.Build(services);
 
-        PostStartup(provider: services.BuildServiceProvider());
+        ServiceProvider provider = services.BuildServiceProvider();
+        PostStartup(provider);
+
+        moduleCatalog.RunPostBuild(provider);
     }
 
     protected virtual IModuleCatalog CreateModuleCatalog() => new OnMemoryModuleCatalog();

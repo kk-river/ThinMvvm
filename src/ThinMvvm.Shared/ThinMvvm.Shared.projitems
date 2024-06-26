@@ -11,7 +11,9 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)internal\MinimumSubject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ThinApplication.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Transition\Frame.cs" />
+    <Compile Include="..\ThinMvvm.Shared\Transition\ElementConfiguration.cs" />
+    <Compile Include="..\ThinMvvm.Shared\Transition\FrameConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Transition\IConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Transition\IServiceCollectionExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Transition\ITransitionBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)transition\ITransitionBuilderExtensions.cs" />

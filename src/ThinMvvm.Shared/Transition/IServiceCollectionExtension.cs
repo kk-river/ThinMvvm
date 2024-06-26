@@ -8,7 +8,6 @@ public static class IServiceCollectionExtension
     {
         TransitionBuilder builder = new(services);
         configureTransition(builder);
-        builder.Build();
 
         return services;
     }

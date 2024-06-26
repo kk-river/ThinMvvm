@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ThinMvvm.Shared.Transition;
 
 #if WINUI
 using Microsoft.UI.Xaml;
@@ -10,45 +11,56 @@ namespace ThinMvvm.Transition;
 
 public class TransitionManager : ITransitionManager
 {
-    #region Dependency
-    public static readonly DependencyProperty FrameNameProperty = DependencyProperty.RegisterAttached("FrameName", typeof(string), typeof(TransitionManager), new PropertyMetadata(defaultValue: null, OnFrameNameChanged));
-
-    private static void OnFrameNameChanged(DependencyObject element, DependencyPropertyChangedEventArgs args) => s_frames.Add((string)args.NewValue, new Frame((FrameworkElement)element));
-
-    public static void SetFrameName(DependencyObject regionTarget, string regionName) => regionTarget.SetValue(FrameNameProperty, regionName);
-
-    public static string GetFrameName(DependencyObject regionTarget) => (string)regionTarget.GetValue(FrameNameProperty);
-    #endregion Dependency
-
-    internal static readonly Dictionary<string, IFrame> s_frames = [];
-    public IReadOnlyDictionary<string, IFrame> Frames => s_frames;
+    internal readonly Dictionary<string, FrameConfiguration> _frames = [];
 
     private readonly IServiceProvider _provider;
 
-    internal TransitionManager(IServiceProvider provider)
+    public TransitionManager(IServiceProvider provider)
     {
         _provider = provider;
     }
 
-    public void RequestTransit(string frameName, string viewName)
+    public void RequestTransition(string frameName, string viewName)
     {
-        if (!s_frames.TryGetValue(frameName, out IFrame? frame))
+        if (!_frames.TryGetValue(frameName, out FrameConfiguration? parent))
         {
             throw new KeyNotFoundException($"Frame '{frameName}' not found.");
         }
 
-        ViewRegistration view = _provider.GetRequiredKeyedService<ViewRegistration>(viewName);
-        ((Frame)frame).PasteView(view);
+        ElementConfiguration<FrameworkElement> viewConf = _provider.GetRequiredKeyedService<ElementConfiguration<FrameworkElement>>(viewName);
+        foreach ((string myFrameName, FrameConfiguration? myFrame) in viewConf.Frames)
+        {
+            _frames.TryAdd(myFrameName, myFrame);
+        }
+
+        FrameworkElement view = viewConf.CreateView(_provider);
+        parent.PasteView(view);
+    }
+
+    public void ScheduleTransition(string frameName, string viewName)
+    {
+        ElementConfiguration<FrameworkElement> viewConf = _provider.GetRequiredKeyedService<ElementConfiguration<FrameworkElement>>(viewName);
+        foreach ((string myFrameName, FrameConfiguration? myFrame) in viewConf.Frames)
+        {
+            _frames.TryAdd(myFrameName, myFrame);
+            myFrame
+        }
+
     }
 
     public void ShowWindow(string windowName)
     {
-        WindowRegistration window = _provider.GetRequiredKeyedService<WindowRegistration>(windowName);
+        ElementConfiguration<Window> conf = _provider.GetRequiredKeyedService<ElementConfiguration<Window>>(windowName);
+        Window window = conf.CreateView(_provider);
+        foreach ((string myFrameName, FrameConfiguration myFrame) in conf.Frames)
+        {
+            _frames.TryAdd(myFrameName, myFrame);
+        }
 
 #if WINUI
-        window.Window.Activate();
+        window.Activate();
 #else
-        window.Window.Show();
+        window.Show();
 #endif
     }
 }

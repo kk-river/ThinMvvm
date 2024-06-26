@@ -8,4 +8,6 @@ public interface IModuleCatalog
         where TModule : IModule, new();
 
     void Build(IServiceCollection services);
+
+    void RunPostBuild(IServiceProvider provider);
 }
