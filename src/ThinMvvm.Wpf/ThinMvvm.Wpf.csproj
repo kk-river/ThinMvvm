@@ -7,7 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
     <RootNamespace>ThinMvvm</RootNamespace>
-    <VersionPrefix>0.3.1</VersionPrefix>
+    <VersionPrefix>0.4.0</VersionPrefix>
   </PropertyGroup>
 
   <Import Project="..\ThinMvvm.Shared\ThinMvvm.Shared.projitems" Label="Shared" />

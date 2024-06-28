@@ -5,7 +5,6 @@
     <Nullable>enable</Nullable>
     <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</RepoRoot>
     <PathMap>$(RepoRoot)=.</PathMap>
-    <InvariantGlobalization>true</InvariantGlobalization>
     <UseArtifactsOutput>true</UseArtifactsOutput>
     <RootNamespace>ThinMvvm</RootNamespace>
 

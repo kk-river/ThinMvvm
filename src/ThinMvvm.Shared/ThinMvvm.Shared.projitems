@@ -9,18 +9,13 @@
     <Import_RootNamespace>ThinMvvm.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)internal\MinimumSubject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ThinApplication.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Transition\Frame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Transition\IServiceCollectionExtension.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Transition\ITransitionBuilder.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)transition\ITransitionBuilderExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Transition\ITransitionManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Transition\TransitionBuilder.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Transition\TransitionManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Transition\Registration.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Internal\" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIHelper\IServiceCollectionExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIHelper\IViewHelperBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIHelper\IViewHelperBuilderExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIHelper\IViewHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIHelper\ViewHelperBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIHelper\ViewHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UIHelper\ViewModelBase.cs" />
   </ItemGroup>
 </Project>

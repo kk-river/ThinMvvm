@@ -4,5 +4,7 @@ namespace ThinMvvm.Modularity;
 
 public interface IModule
 {
-    void OnInitialize(IServiceCollection services);
+    void OnInitializing(IServiceCollection services);
+
+    void OnInitialized(IServiceProvider provider);
 }
