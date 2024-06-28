@@ -1,6 +1,6 @@
 ﻿using ThinMvvm.Modularity;
 using Microsoft.Extensions.DependencyInjection;
-using ThinMvvm.Transition;
+using ThinMvvm.UIHelper;
 
 
 #if WINUI
@@ -27,7 +27,7 @@ public abstract class ThinApplication : Application
 
         ConfigureServices(services);
 
-        services.AddSingleton<ITransitionManager, TransitionManager>();
+        services.AddSingleton<IViewHelper, ViewHelper>();
 
         IModuleCatalog moduleCatalog = CreateModuleCatalog();
         ConfigureModuleCatalog(moduleCatalog);

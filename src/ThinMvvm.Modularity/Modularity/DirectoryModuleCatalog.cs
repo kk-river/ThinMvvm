@@ -3,14 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ThinMvvm.Modularity;
 
-public class DirectoryModuleCatalog : ModuleCatalog, IModuleCatalog
+public class DirectoryModuleCatalog(string directoryPath) : ModuleCatalog, IModuleCatalog
 {
-    private readonly string _directoryPath;
-
-    public DirectoryModuleCatalog(string directoryPath)
-    {
-        _directoryPath = directoryPath ?? throw new ArgumentNullException(nameof(directoryPath));
-    }
+    private readonly string _directoryPath = directoryPath ?? throw new ArgumentNullException(nameof(directoryPath));
 
     public override void Build(IServiceCollection services)
     {

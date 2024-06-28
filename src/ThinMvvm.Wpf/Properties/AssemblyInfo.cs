@@ -18,4 +18,4 @@ using System.Windows.Markup;
 [assembly: Guid("b46f3adc-5c86-4d23-9fb0-44427dd0a244")]
 
 [assembly: XmlnsDefinition("http://kk-river.com/thinmvvm", "ThinMvvm")]
-[assembly: XmlnsDefinition("http://kk-river.com/thinmvvm", "ThinMvvm.Transition")]
+[assembly: XmlnsDefinition("http://kk-river.com/thinmvvm", "ThinMvvm.UIHelper")]
